@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Typography } from "@material-ui/core"
-import SearchBar from 'material-ui-search-bar-enhanced'
+import SearchBar from 'material-ui-search-bar'
+import SearchIcon from '@material-ui/icons/Search'
+import IconButton from "@material-ui/core/IconButton";
 
 const borderStyles = {
   borderColor: 'white',
@@ -17,12 +19,14 @@ class XLVideo extends Component {
       <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
         <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
           {/* The search bar */}
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} >
-          <SearchBar
-            onChange={() => console.log('onChange')}
-            onRequestSearch={() => console.log('onRequestSearch')}
-            onClear={() => console.log('onClear')}
-          />
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{marginBottom: 10}} >
+            <SearchBar
+              onChange={() => console.log('onChange')}
+              onRequestSearch={() => console.log('onRequestSearch')}
+              onClear={() => console.log('onClear')}
+              style={{height: 30, fontSize: 6}}
+              searchIcon={<div/>}
+            />
           </Grid>
           {/* The vid */}
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{height: 400, ...borderStyles, background: 'linear-gradient(to right bottom, #430089, #82ffa1)'}} />
