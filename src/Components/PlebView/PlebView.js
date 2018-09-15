@@ -3,34 +3,65 @@ import { Grid, Typography } from "@material-ui/core"
 import XLVideo from "./XLVideo"
 import Switch from '@material-ui/core/Switch';
 import Logo from '../../svgs/Logo.svg';
+import VideoDetail from './videoPlayer';
+import SearchBarMine from './searchBar';
+import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
+
+
+
+const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 
 class PlebView extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            videos: [],
+            selectedVideo: null
+        };
+        this.videoSearch('')
+    }
+
+    videoSearch(term){
+        YTSearch({key: API_key, term: term,}, (videos) => {
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });
+        });
+    }
+
   render() {
+      const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
     return (
       <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
-        <LeftSide/>
+          <Grid container xs={8} sm={8} md={8} lg={8} xl={8} >
+              <Grid item xs={1} sm={1} md={1} lg={1} xl={1} />
+              <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
+                  <Title/>
+                  <SearchBarMine onSearchTermChange = {videoSearch}/>
+                  <VideoDetail video={this.state.selectedVideo}/>
+                  {/*<XLVideo/>*/}
+                  {/* XL video */}
+                  {/* heatmap */}
+                  {/* comments */}
+              </Grid>
+          </Grid>
         <RightSide/>
       </Grid>
     );
   }
 }
 
-class LeftSide extends Component {
-  render() {
-    return (
-        <Grid container xs={8} sm={8} md={8} lg={8} xl={8} >
-          <Grid item xs={1} sm={1} md={1} lg={1} xl={1} />
-          <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
-            <Title/>
-            <XLVideo/>
-            {/* XL video */}
-            {/* heatmap */}
-            {/* comments */}
-          </Grid>
-        </Grid>
-    );
-  }
-}
+// class LeftSide extends Component {
+//   render() {
+//     return (
+//
+//     );
+//   }
+// }
 
 class RightSide extends Component {
   render() {
