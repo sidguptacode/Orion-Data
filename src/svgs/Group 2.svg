@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.5 48">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_2" data-name="Group 2" transform="translate(-90.5 -50)">
+    <line id="Line_7" data-name="Line 7" class="cls-1" x1="40" transform="translate(112.5 55.5)"/>
+    <g id="Ellipse_11" data-name="Ellipse 11" class="cls-2" transform="translate(147 50)">
+      <circle class="cls-3" cx="5" cy="5" r="5"/>
+      <circle class="cls-4" cx="5" cy="5" r="4"/>
+    </g>
+    <line id="Line_6" data-name="Line 6" class="cls-1" x1="40" transform="translate(90.5 75)"/>
+    <line id="Line_5" data-name="Line 5" class="cls-1" x1="40" transform="translate(112.5 93.5)"/>
+    <g id="Ellipse_12" data-name="Ellipse 12" class="cls-2" transform="translate(125 69.5)">
+      <circle class="cls-3" cx="5" cy="5" r="5"/>
+      <circle class="cls-4" cx="5" cy="5" r="4"/>
+    </g>
+    <g id="Ellipse_13" data-name="Ellipse 13" class="cls-2" transform="translate(147 88)">
+      <circle class="cls-3" cx="5" cy="5" r="5"/>
+      <circle class="cls-4" cx="5" cy="5" r="4"/>
+    </g>
+  </g>
+</svg>
