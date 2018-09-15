@@ -16,7 +16,7 @@ const borderStyles = {
 class XLVideo extends Component {
   render() {
     return (
-      <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
+      <Grid container  xs={12} sm={12} md={12} lg={12} xl={12} >
         <Grid container xs={11} sm={11} md={11} lg={11} xl={11} >
           {/* The search bar */}
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{marginBottom: 10}} >
