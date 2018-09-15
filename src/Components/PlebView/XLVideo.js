@@ -31,11 +31,11 @@ class XLVideo extends Component {
           {/* The vid */}
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{height: 400, ...borderStyles, background: 'linear-gradient(to right bottom, #430089, #82ffa1)'}} />
           {/* Text */}
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{marginTop: 10}}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{marginTop: 15, marginBottom: 10}}>
             <Typography variant="headline">{"The Eye of the Tiger (Sid Gupta Cover) "}</Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Typography variant="body2">{"1B Views "}</Typography>
+            <Typography variant="body2" style={{color: "#6E6E6E"}}>{"1B Views "}</Typography>
           </Grid>
         </Grid>
         <Grid container xs={1} sm={1} md={1} lg={1} xl={1} />
