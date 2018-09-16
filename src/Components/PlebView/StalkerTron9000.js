@@ -70,7 +70,7 @@ class TestStream extends Component {
         (snapshot) => {
           snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.setState({downloadURL: downloadURL}, () => {
-
+              
               var microsoft = (processImage(this.state.downloadURL));
               if(microsoft != null && microsoft.data.length != 0){
                   console.log("RAN!!");

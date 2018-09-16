@@ -365,6 +365,7 @@ class ViewSwitch extends Component {
 
 function mapStateToProps(state){
   return {
+    selectedVideo: state.videoReducer.video,
     happinessVal: state.dataReducer.h,
     sadnessVal: state.dataReducer.s,
     neutralityVal: state.dataReducer.n,
