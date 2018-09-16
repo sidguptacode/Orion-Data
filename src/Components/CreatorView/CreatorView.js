@@ -245,7 +245,7 @@ class CreatorView extends Component {
                                                             style={{marginLeft: 20, color: '#fff', marginTop: 20}}>Emotion
                                                     During Video</Typography>
                                                 <PieChart width={300} height={220}>
-                                                    <Pie data={data02} innerRadius={55} outerRadius={80}
+                                                    <Pie data={this.props.emotionData} innerRadius={55} outerRadius={80}
                                                          fill="#FF595E"/>
                                                     <Tooltip/>
                                                 </PieChart>
@@ -415,7 +415,8 @@ function mapStateToProps(state){
   return {
     selectedVideo: state.videoReducer.video,
     ageData: state.dataReducer.ageData,
-    raceData: state.dataReducer.raceData
+    raceData: state.dataReducer.raceData,
+    emotionData: state.dataReducer.emotionData
   }
 }
 
