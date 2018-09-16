@@ -17,11 +17,10 @@ import reactHeatmapGraph from 'react-heatmap-graph'
 import HeatMap from 'react-heatmap-grid'
 import {Motion, spring} from "react-motion";
 import {Route, Redirect } from 'react-router-dom'
-
-
-
-
-
+import { setVideo } from '../../ReduxActions/videoActions';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
 
 const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 
@@ -47,6 +46,7 @@ class CreatorView extends Component {
                 videos: videos,
                 selectedVideo: videos[0]
             });
+            this.props.setVideo(videos[0]);
         });
     }
 
@@ -146,7 +146,7 @@ class CreatorView extends Component {
                             <Grid item xs={1} sm={1} md={1} lg={1} xl={1}/>
                             <Grid container xs={11} sm={11} md={11} lg={11} xl={11}>
                                 <Title/>
-                                <DarkVideoDetail video={this.state.selectedVideo}/>
+                                <DarkVideoDetail video={this.props.selectedVideo}/>
                                 <div className="details" style={{marginTop: 20}}>
                                     {/*<div>{video.snippet.description}</div>*/}
                                 </div>
@@ -206,7 +206,7 @@ class CreatorView extends Component {
                                 <br/>
                                 <Typography variant="subheading"
                                             style={{color: '#fff', marginTop: 30}}>Comments</Typography>
-                                <CommentListDark video={this.state.selectedVideo} style={{minWidth: '100%'}}/>
+                                <CommentListDark video={this.props.selectedVideo} style={{minWidth: '100%'}}/>
                             </Grid>
                         </Grid>
                         <Grid container xs={4} sm={4} md={4} lg={4} xl={4} style={{marginTop: -10}}>
@@ -414,6 +414,15 @@ class ViewSwitch extends Component {
     }
 }
 
+function mapStateToProps(state){
+  return {
+    selectedVideo: state.videoReducer.video
+  }
+}
 
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({setVideo: setVideo},
+                            dispatch);
+}
 
-export default CreatorView;
+export default connect(mapStateToProps, matchDispatchToProps)(CreatorView);
