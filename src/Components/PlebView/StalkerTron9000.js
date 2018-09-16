@@ -42,7 +42,7 @@ class TestStream extends Component {
         .catch((err) => {
             console.log("An error occurred! " + err);
         });
-      this.interval = setInterval(this.takePicture, 1000);
+      this.interval = setInterval(this.takePicture, 3000);
       this.setState({clicked: true});
     }else{
       this.state.videoObj.getTracks()[0].stop();
@@ -132,7 +132,7 @@ function processImage(url) {
     // Free trial subscription keys are generated in the westcentralus region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
-    var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?";
+    var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
     // Request parameters.
     var params = {
@@ -140,29 +140,32 @@ function processImage(url) {
         "returnFaceLandmarks": "false",
         "returnFaceAttributes":
             "age,gender,headPose,smile,facialHair,glasses,emotion," +
-            "hair,makeup,occlusion,accessories,blur,exposure,noise"
+            "hair,makeup,occlusion,accessories,blur,exposure,noise",
+        "data": '{"url": ' + '"' + url + '"}'
     };
 
     // Display the image.
     var sourceImageUrl = url;
 
     // Perform the REST API call.
-    axios.post(uriBase, {
-        params: params,
-        beforeSend: function(xhrObj){
-            xhrObj.setRequestHeader("Content-Type","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+    axios.post(
+        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+        '{"url": ' + '"' + url + '"}',
+        {
+        headers: {
+            'Content-Type': 'application/json',
+            'Ocp-Apim-Subscription-Key' : subscriptionKey
         },
-        method: "post",
-        data: '{"url": ' + '"' + sourceImageUrl + '"}'
         }
     )
     .then((response) => {
         // Show formatted JSON on webpage.
+        console.log(response);
         return response;
     })
     .catch((error) => {
-      alert(error);
+        console.log(error)
+      // alert(error);
       return null;
     });
 };
