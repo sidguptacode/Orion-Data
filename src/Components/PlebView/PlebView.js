@@ -15,10 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import axios from "axios/index";
 import { Motion, spring } from "react-motion";
 import {Route, Redirect } from 'react-router-dom'
-
-
-
-
+import { storeVideo } from '../../ReduxActions/videoActions';
 
 const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 
@@ -42,8 +39,9 @@ class PlebView extends Component {
         YTSearch({key: API_key, term: term,}, (videos) => {
             this.setState({
                 videos: videos,
-                selectedVideo: videos[0]
+                selectedVideo: selectedVideo
             });
+            this.props.setVideo(videos[0]);
         });
     }
 
@@ -120,7 +118,7 @@ class PlebView extends Component {
                       <Grid container xs={11} sm={11} md={11} lg={11} xl={11}>
                           <Title/>
                           <SearchBarMine onSearchTermChange={videoSearch}/>
-                          <VideoDetail video={this.state.selectedVideo}/>
+                          <VideoDetail video={this.props.selectedVideo}/>
                           {/*<XLVideo/>*/}
                           {/* XL video */}
                           {/* heatmap */}
@@ -165,7 +163,7 @@ class PlebView extends Component {
                           </Motion>
                           <br/>
                           <Typography variant="subheading" style={{marginTop: 30}}>Comments</Typography>
-                          <CommentList video={this.state.selectedVideo} style={{minWidth: '100%'}}/>
+                          <CommentList video={this.props.selectedVideo} style={{minWidth: '100%'}}/>
 
                           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}/>
                           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}/>
@@ -216,7 +214,7 @@ class PlebView extends Component {
                               </Grid>
                           </Grid>
                           <VideoList
-                              onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                              onVideoSelect={selectedVideo => {this.setState({selectedVideo}); this.props.setVideo(selectedVideo)}}
                               videos={this.state.videos}/>
                           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}/>
                           <Grid item xs={12} sm={12} md={12} lg={12} xl={12}/>
@@ -326,6 +324,18 @@ class ViewSwitch extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {
+    selectedVideo: state.videoReducer.video
+  }
+}
 
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({setVideo: setVideo},
+                            dispatch);
+}
 
-export default PlebView;
+export default compose(
+    withStyles(styles),
+    connect(mapStateToProps, matchDispatchToProps)
+)(PlebView);
