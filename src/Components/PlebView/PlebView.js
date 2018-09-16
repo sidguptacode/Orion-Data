@@ -341,6 +341,7 @@ class ViewSwitch extends Component {
     };
 
     handleChange = name => event => {
+      console.log(name + " " + event.target.checked);
         this.setState({ [name]: event.target.checked });
         console.log("switch hit")
     };

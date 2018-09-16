@@ -20,14 +20,17 @@ class App extends Component {
 class Main extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      clicked: false
+    }
   }
 
   render() {
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={() => <div><PlebView/><TestStream/></div>}/>
-          <Route exact path='/creator' component={() => <div><CreatorView/><TestStream/></div>}/>
+          <Route exact path='/' component={() => <div><PlebView stopVideo={() => {this.setState({clicked: true});}}/><TestStream clicked={this.state.clicked} setClicked={() => {this.setState({clicked: !this.state.clicked});}}/></div>}/>
+          <Route exact path='/creator' component={() => <div><CreatorView stopVideo={() => {this.setState({clicked: true});}}/><TestStream clicked={this.state.clicked} setClicked={() => {this.setState({clicked: !this.state.clicked});}}/></div>}/>
           <Route exact path='/stream' component={TestStream}/>
         </Switch>
       </main>
