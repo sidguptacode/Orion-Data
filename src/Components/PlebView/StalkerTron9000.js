@@ -105,7 +105,7 @@ class TestStream extends Component {
     return (
       <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} >
-          <video id="video" ref={this.videoRef} src={this.state.videoURL} style={{display:"none"}}/>
+          <video id="video" ref={this.videoRef} src={this.state.videoURL} />
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
         </Grid>
