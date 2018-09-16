@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Clarifai from 'clarifai'
 import firebase from './Firebase.js'
 import axios from 'axios'
-import {storeAge, storeRace} from '../../ReduxActions/dataActions';
+import {storeAge, storeRace, storeStats} from '../../ReduxActions/dataActions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
@@ -71,8 +71,13 @@ class TestStream extends Component {
           snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.setState({downloadURL: downloadURL}, () => {
 
-              console.log("the try");
-              console.log(processImage(this.state.downloadURL));
+              var microsoft = (processImage(this.state.downloadURL));
+              if(microsoft != null && microsoft.data.length != 0){
+                  console.log("RAN!!");
+                  this.props.storeStats(microsoft.data[0].faceAttributes.emotion.happiness,
+                  microsoft.data[0].faceAttributes.emotion.neutral, microsoft.data[0].faceAttributes.emotion.sadness,
+                  microsoft.data[0].faceAttributes.emotion.surprise);
+              }
 
               // Send API call!
               const app = new Clarifai.App({
@@ -178,7 +183,7 @@ function processImage(url) {
 };
 
 function matchDispatchToProps(dispatch){
-  return bindActionCreators({storeAge: storeAge, storeRace: storeRace},
+  return bindActionCreators({storeAge: storeAge, storeRace: storeRace, storeStats: storeStats},
                             dispatch);
 }
 

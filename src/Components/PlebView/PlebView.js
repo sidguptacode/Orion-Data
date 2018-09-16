@@ -148,27 +148,27 @@ class PlebView extends Component {
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Happiness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.happinessVal}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.happinessVal}</Typography>
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Sadness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.sadnessVal}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.sadnessVal}</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Neutrality</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.neutralityVal}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.neutralityVal}</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Surprise</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.surpriseVal}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.surpriseVal}</Typography>
 
                                   </Paper>
                               </Grid>
@@ -365,7 +365,10 @@ class ViewSwitch extends Component {
 
 function mapStateToProps(state){
   return {
-    selectedVideo: state.videoReducer.video
+    happinessVal: state.dataReducer.h,
+    sadnessVal: state.dataReducer.s,
+    neutralityVal: state.dataReducer.n,
+    surpriseVal: state.dataReducer.sr
   }
 }
 

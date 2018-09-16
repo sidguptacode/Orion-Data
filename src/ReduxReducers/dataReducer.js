@@ -1,6 +1,10 @@
 const initialState = {
   ageData: [],
-  raceData: []
+  raceData: [],
+  h: 0,
+  s: 0,
+  n: 0,
+  sr: 0
 }
 
 export default function(state = initialState, action) {
@@ -38,6 +42,14 @@ export default function(state = initialState, action) {
       return {
         ...state,
         raceData: raceData.slice()
+      };
+    case "STORE_STATS":
+      return {
+        ...state,
+        h: action.payload.hap,
+        s: action.payload.sad,
+        n: action.payload.neut,
+        sr: action.payload.surp
       };
     default:
       return state;

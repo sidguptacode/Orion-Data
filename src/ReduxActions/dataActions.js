@@ -12,3 +12,11 @@ export function storeRace(race){
       payload: {race: race}
     });
 }
+
+export function storeStats(hap, neut, sad, surp){
+  console.log("lzxc");
+  return({
+      type: "STORE_STATS",
+      payload: {hap: hap, sad: sad, neut: neut, surp: surp}
+    });
+}
