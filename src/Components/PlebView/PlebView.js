@@ -67,7 +67,7 @@ class PlebView extends Component {
             .then((response) => {
                 console.log(response);
                 this.setState({
-                    videos: response
+                    videos: response.data.items
                 })
 
             })
@@ -98,6 +98,8 @@ class PlebView extends Component {
       }, 300);
       if(this.props.happinessVal >=0.7){
         this.findRecommendedVids(this.props.selectedVideo.id.videoId)
+      } else if(this.props.happinessVal <=0.3 && this.props.sadnessVal >=0.5 ){
+          this.findRecommendedVids(this.state.videos[0].id.videoId)
       }
       const data = [
           {name: 'Page A', uv: 0, pv: 2400, amt: 2400},
