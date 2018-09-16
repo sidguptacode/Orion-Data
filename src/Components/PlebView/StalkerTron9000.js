@@ -67,6 +67,7 @@ class TestStream extends Component {
             this.setState({downloadURL: downloadURL}, () => {
 
               console.log("the try");
+              console.log(processImage(this.state.downloadURL));
 
               // Send API call!
               const app = new Clarifai.App({
@@ -74,16 +75,12 @@ class TestStream extends Component {
               });
 
               app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", this.state.downloadURL).then(
-            		(response) => {
-                  var age = response.outputs[0].data.regions[0].data.face.age_appearance.concepts[0].name;
-                  var gender = response.outputs[0].data.regions[0].data.face.gender_appearance.concepts[0].name;
-                  var race = response.outputs[0].data.regions[0].data.face.multicultural_appearance.concepts[0].name;
-                  **FUNCTION**(age, gender, race);
-
-            		},
-            		(err) => {
-            		  // there was an error
-            		  console.log(err);
+                  (response) => {
+                    console.log(response);
+                  },
+                  (err) => {
+                    // there was an error
+                    console.log(err);
                 });
              });
           });
@@ -97,13 +94,14 @@ class TestStream extends Component {
   render() {
     return (
       <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
-          <Button onClick={this.handleClick}>Click to start!</Button>
-        </Grid>
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-          <video style={{display: "none"}} id="video" ref={this.videoRef} src={this.state.videoURL} />
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{height: 500, ...borderStyles}}>
+          <video id="video" ref={this.videoRef} src={this.state.videoURL} />
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{...borderStyles}}>
+          <img id="photo" style={{height: 480, width: 640}} src={this.state.imageURL} />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
+          <Button onClick={this.handleClick}>Click to start!</Button>
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{textAlign: "center"}}>
           <canvas display={"none"} style={{height: 480, width: 640, display: "none"}} display={false} ref={(c) => {
