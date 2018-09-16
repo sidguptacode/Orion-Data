@@ -149,27 +149,27 @@ class PlebView extends Component {
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Happiness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.happinessVal*100}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{(this.props.happinessVal*100)}%</Typography>
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Sadness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.sadnessVal*100}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{(this.props.sadnessVal*100)}%</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Neutrality</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.neutralityVal*100}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{(this.props.neutralityVal*100)}%</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Surprise</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.surpriseVal*100}%</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{(this.props.surpriseVal*100)}%</Typography>
 
                                   </Paper>
                               </Grid>

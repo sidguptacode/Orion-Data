@@ -9,6 +9,8 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { withStyles } from "@material-ui/core/styles";
+import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
 
 const borderStyles = {
   borderColor: '#e8e8e8',
@@ -142,9 +144,11 @@ class TestStream extends Component {
           var microsoft = response;
           if(microsoft != null && microsoft.data != null && microsoft.data.length > 0){
               console.log("RAN!!");
-              this.props.storeStats(microsoft.data[0].faceAttributes.emotion.happiness,
-              microsoft.data[0].faceAttributes.emotion.neutral, microsoft.data[0].faceAttributes.emotion.sadness,
-              microsoft.data[0].faceAttributes.emotion.surprise);
+              this.props.storeStats(Math.round((microsoft.data[0].faceAttributes.emotion.happiness*100))/100,
+                  Math.round((microsoft.data[0].faceAttributes.emotion.neutral*100))/100,
+                  Math.round((microsoft.data[0].faceAttributes.emotion.sadness*100))/100,
+                  Math.round((microsoft.data[0].faceAttributes.emotion.surprise*100))/100);
+
           }
 
           return response;
@@ -159,13 +163,13 @@ class TestStream extends Component {
   render() {
     return (
       <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} >
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
+              <Button style={{position: 'fixed', bottom: 20, right: 20}} variant="extendedFab" color="primary" aria-label="Add" onClick={this.handleClick}>Begin Sentiment</Button>
+          </Grid>
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{marginTop: 200}} >
           <video id="video" ref={this.videoRef} src={this.state.videoURL} />
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-        </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
-          <Button onClick={this.handleClick}>Begin!</Button>
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{textAlign: "center"}}>
           <canvas display={"none"} style={{height: 480, width: 640, display: "none"}} display={false} ref={(c) => {
