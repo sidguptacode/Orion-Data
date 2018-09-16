@@ -92,12 +92,13 @@ class PlebView extends Component {
         )
     }
 
-
-
   render() {
       const videoSearch = _.debounce((term) => {
           this.videoSearch(term)
       }, 300);
+      if(this.props.happinessVal >=0.7){
+        this.findRecommendedVids(this.props.selectedVideo.id.videoId)
+      }
       const data = [
           {name: 'Page A', uv: 0, pv: 2400, amt: 2400},
           {name: 'Page B', uv: 1, pv: 1398, amt: 2210},
@@ -148,27 +149,27 @@ class PlebView extends Component {
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Happiness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.happinessVal}</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.happinessVal*100}%</Typography>
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Sadness</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.sadnessVal}</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.sadnessVal*100}%</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Neutrality</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.neutralityVal}</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.neutralityVal*100}%</Typography>
 
                                   </Paper>
                               </Grid>
                               <Grid item xs={3}>
                                   <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
                                       <Typography variant="body1" style={{paddingTop: 10}}>Surprise</Typography>
-                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.surpriseVal}</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.props.surpriseVal*100}%</Typography>
 
                                   </Paper>
                               </Grid>

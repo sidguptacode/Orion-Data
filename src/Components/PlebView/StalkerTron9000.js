@@ -38,7 +38,7 @@ class TestStream extends Component {
   }
 
   handleClick = () => {
-    if(!this.props.clicked){
+    if(!this.state.clicked){
       navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then((stream) => {
           this.setState({videoObj: stream, videoURL : URL.createObjectURL(stream)});
@@ -48,12 +48,12 @@ class TestStream extends Component {
             console.log("An error occurred! " + err);
         });
       this.interval = setInterval(this.takePicture, 3000);
+      this.setState({clicked: true});
     }else{
       this.state.videoObj.getTracks()[0].stop();
-      this.setState({videoObj: null, videoURL : null});
+      this.setState({videoObj: null, videoURL : null, clicked: false});
       clearInterval(this.interval);
     }
-    this.props.setClicked();
   }
 
   takePicture = () => {
