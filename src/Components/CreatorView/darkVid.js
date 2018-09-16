@@ -1,11 +1,10 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { Grid, Typography } from "@material-ui/core"
-import { Motion, spring } from "react-motion";
+import {Motion, spring} from "react-motion";
 
 
-
-const VideoDetail = ({video}) => {
+const DarkVideoDetail = ({video}) => {
     if (!video) {
         return <div>Loading...</div>
     }
@@ -19,7 +18,7 @@ const VideoDetail = ({video}) => {
                 opacity: spring(1)
             }}>
                 {(style) => (
-            <Paper className="borderRadius" style={{opacity: style.opacity, transform: `translateX(${style.x}%)`, border: 2, borderRadius: 20, position: 'relative', overflow: 'hidden', height: 500, minWidth: '100%'}}>
+            <Paper className="borderRadius" style={{ opacity: style.opacity, transform: `translateX(${style.x}%)`, border: 2, borderRadius: 20, position: 'relative', overflow: 'hidden', height: 500, minWidth: '100%'}}>
                 <div className="video embed-responsive embed-responsive-16by9">
                     <iframe className="embed-responsive-item" style={{height: 500, minWidth: '100%', border: 'none', borderRadius: '15px'}} src={url} />
                 </div>
@@ -32,14 +31,13 @@ const VideoDetail = ({video}) => {
             }}>
                 {(style) => (
             <div className="details" style={{marginTop: 20, opacity: style.opacity, transform: `translateX(${style.x}%)`}}>
-                <Typography variant="headline">{video.snippet.title}</Typography>
+                <Typography style={{color: '#fff'}} variant="headline">{video.snippet.title}</Typography>
                 {/*<div>{video.snippet.description}</div>*/}
             </div>
-                    )}
+                )}
             </Motion>
-
         </div>
     );
 };
 
-export default VideoDetail;
+export default DarkVideoDetail;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Router, Redirect } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
 import PlebView from "./Components/PlebView/PlebView"
+import CreatorView from "./Components/CreatorView/CreatorView"
 
 /* Main application. */
 class App extends Component {
@@ -25,6 +26,7 @@ class Main extends Component {
       <main>
         <Switch>
           <Route exact path='/' component={PlebView}/>
+          <Route exact path='/creator' component={CreatorView}/>
         </Switch>
       </main>
     );
