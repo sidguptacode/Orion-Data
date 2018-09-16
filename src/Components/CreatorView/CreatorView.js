@@ -415,7 +415,7 @@ function mapStateToProps(state){
   return {
     selectedVideo: state.videoReducer.video,
     ageData: state.dataReducer.ageData,
-    raceData: state.dateReducer.raceData
+    raceData: state.dataReducer.raceData
   }
 }
 
