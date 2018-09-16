@@ -1,6 +1,7 @@
 const initialState = {
   ageData: [],
   raceData: [],
+  emotionData: [{name: "happiness", value: 0}, {name: "sadness", value: 0}, {name: "neutral", value: 0}, {name: "surprised", value: 0}],
   h: 0,
   s: 0,
   n: 0,
@@ -44,13 +45,20 @@ export default function(state = initialState, action) {
         raceData: raceData.slice()
       };
     case "STORE_STATS":
+      state.emotionData[0].value += action.payload.hap;
+      state.emotionData[1].value += action.payload.sad;
+      state.emotionData[2].value += action.payload.neut;
+      state.emotionData[3].value += action.payload.surp;
+
       return {
         ...state,
         h: action.payload.hap,
         s: action.payload.sad,
         n: action.payload.neut,
-        sr: action.payload.surp
+        sr: action.payload.surp,
+        emotionData: state.emotionData.slice()
       };
+      
     default:
       return state;
   }
