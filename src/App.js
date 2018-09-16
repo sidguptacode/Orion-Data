@@ -26,8 +26,8 @@ class Main extends Component {
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={PlebView}/>
-          <Route exact path='/creator' component={CreatorView}/>
+          <Route exact path='/' component={() => <div><TestStream/><PlebView/></div>}/>
+          <Route exact path='/creator' component={() => <div><TestStream/><CreatorView/></div>}/>
           <Route exact path='/stream' component={TestStream}/>
         </Switch>
       </main>
