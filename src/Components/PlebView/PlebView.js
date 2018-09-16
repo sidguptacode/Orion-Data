@@ -36,6 +36,10 @@ class PlebView extends Component {
             checkedB: true,
             submitted: 1000,
             eraseText: 1,
+            happinessVal: 0,
+            sadnessVal: 0,
+            neutralityVal: 0,
+            surpriseVal: 0
         };
         this.videoSearch('')
     }
@@ -137,35 +141,65 @@ class PlebView extends Component {
                                       opacity: style.opacity,
                                       transform: `translateX(${style.x}%)`,
                                       marginTop: 30
-                                  }}>Happiness</Typography>
+                                  }}>Emotional Analysis</Typography>
                               )}
                           </Motion>
-                          <Motion defaultStyle={{x: 0, opacity: 0, scale: 0}} style={{
-                              x: spring(0, {stiffness: 130, damping: 26}),
-                              opacity: spring(1, {stiffness: 60, damping: 26}),
-                              scale: spring(100, {stiffness: 70, damping: 20})
-                          }}>
-                              {(style) => (
-                                  <Paper style={{
-                                      opacity: style.opacity,
-                                      width: `${style.scale}%`,
-                                      marginTop: 20,
-                                      border: 2,
-                                      borderRadius: 20,
-                                      position: 'relative',
-                                      overflow: 'hidden',
-                                      minHeight: 120,
-                                      textAlign: 'center'
-                                  }}>
-                                      <AreaChart width={850} height={100} data={data}
-                                                 margin={{top: 25, right: 0, left: 0, bottom: 5}}
-                                                 style={{textAlign: 'center'}}>
-                                          <Area type='monotone' dataKey='uv' stroke='#3949AB' fill='#3949AB'/>
-                                          <Tooltip/>
-                                      </AreaChart>
+                          <Grid container xs={12} sm={12} md={12} lg={12} xl={12} style={{marginTop: 10}}>
+                              <Grid item xs={3}>
+                                  <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
+                                      <Typography variant="body1" style={{paddingTop: 10}}>Happiness</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.happinessVal}%</Typography>
                                   </Paper>
-                              )}
-                          </Motion>
+                              </Grid>
+                              <Grid item xs={3}>
+                                  <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
+                                      <Typography variant="body1" style={{paddingTop: 10}}>Sadness</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.sadnessVal}%</Typography>
+
+                                  </Paper>
+                              </Grid>
+                              <Grid item xs={3}>
+                                  <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
+                                      <Typography variant="body1" style={{paddingTop: 10}}>Neutrality</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.neutralityVal}%</Typography>
+
+                                  </Paper>
+                              </Grid>
+                              <Grid item xs={3}>
+                                  <Paper style={{margin:10, textAlign: 'center', borderRadius: 20}}>
+                                      <Typography variant="body1" style={{paddingTop: 10}}>Surprise</Typography>
+                                      <Typography variant="display3" style={{marginTop: 10}}>{this.state.surpriseVal}%</Typography>
+
+                                  </Paper>
+                              </Grid>
+                          </Grid>
+
+                          {/*<Motion defaultStyle={{x: 0, opacity: 0, scale: 0}} style={{*/}
+                              {/*x: spring(0, {stiffness: 130, damping: 26}),*/}
+                              {/*opacity: spring(1, {stiffness: 60, damping: 26}),*/}
+                              {/*scale: spring(100, {stiffness: 70, damping: 20})*/}
+                          {/*}}>*/}
+                              {/*{(style) => (*/}
+                                  {/*<Paper style={{*/}
+                                      {/*opacity: style.opacity,*/}
+                                      {/*width: `${style.scale}%`,*/}
+                                      {/*marginTop: 20,*/}
+                                      {/*border: 2,*/}
+                                      {/*borderRadius: 20,*/}
+                                      {/*position: 'relative',*/}
+                                      {/*overflow: 'hidden',*/}
+                                      {/*minHeight: 120,*/}
+                                      {/*textAlign: 'center'*/}
+                                  {/*}}>*/}
+                                      {/*<AreaChart width={850} height={100} data={data}*/}
+                                                 {/*margin={{top: 25, right: 0, left: 0, bottom: 5}}*/}
+                                                 {/*style={{textAlign: 'center'}}>*/}
+                                          {/*<Area type='monotone' dataKey='uv' stroke='#3949AB' fill='#3949AB'/>*/}
+                                          {/*<Tooltip/>*/}
+                                      {/*</AreaChart>*/}
+                                  {/*</Paper>*/}
+                              {/*)}*/}
+                          {/*</Motion>*/}
                           <br/>
                           <Typography variant="subheading" style={{marginTop: 30}}>Comments</Typography>
                           <CommentList video={this.props.selectedVideo} style={{minWidth: '100%'}}/>

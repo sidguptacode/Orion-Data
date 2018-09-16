@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c8ea88c-ef48-4dcd-b470-3d29e27320f8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/src/Components/PlebView/PlebView.js" afterPath="$PROJECT_DIR$/src/Components/PlebView/PlebView.js" />
       <change beforePath="$PROJECT_DIR$/src/Components/PlebView/StalkerTron9000.js" afterPath="$PROJECT_DIR$/src/Components/PlebView/StalkerTron9000.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,25 +18,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlebView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlebView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/PlebView/PlebView.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
+              <caret line="143" column="55" lean-forward="false" selection-start-line="143" selection-start-column="55" selection-end-line="143" selection-end-column="55" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1537093544000" expanded="false" signature="6683:9092" ph="..." />
-                <marker date="1537093544000" expanded="false" signature="10500:13405" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StalkerTron9000.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StalkerTron9000.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/PlebView/StalkerTron9000.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="48" column="70" lean-forward="false" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
+            <state relative-caret-position="2760">
+              <caret line="184" column="62" lean-forward="false" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -78,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="7" />
+              <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -111,10 +109,10 @@
       <file leaf-file-name="CreatorView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/CreatorView/CreatorView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="140" column="36" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+            <state relative-caret-position="150">
+              <caret line="184" column="55" lean-forward="false" selection-start-line="184" selection-start-column="53" selection-end-line="184" selection-end-column="55" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <marker date="1537101366000" expanded="true" signature="14386:14397" ph="&lt;Pie/&gt;" />
               </folding>
             </state>
           </provider>
@@ -144,6 +142,9 @@
       <find>Title</find>
       <find>XLVideo</find>
       <find>extractedC</find>
+      <find>happin</find>
+      <find>1000</find>
+      <find>TestStream</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -163,10 +164,10 @@
         <option value="$PROJECT_DIR$/src/Components/PlebView/videoPlayer.js" />
         <option value="$PROJECT_DIR$/src/Components/PlebView/videoList.js" />
         <option value="$PROJECT_DIR$/src/Components/PlebView/videoListItem.js" />
-        <option value="$PROJECT_DIR$/src/Components/PlebView/PlebView.js" />
         <option value="$PROJECT_DIR$/src/Components/CreatorView/darkVid.js" />
         <option value="$PROJECT_DIR$/src/Components/CreatorView/CreatorView.js" />
         <option value="$PROJECT_DIR$/src/Components/PlebView/StalkerTron9000.js" />
+        <option value="$PROJECT_DIR$/src/Components/PlebView/PlebView.js" />
       </list>
     </option>
   </component>
@@ -311,8 +312,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/package-lock.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/App.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -320,7 +320,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Components/PlebView/Firebase.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -434,12 +433,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537020623114</updated>
-      <workItem from="1537020625295" duration="47841000" />
+      <workItem from="1537020625295" duration="50065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47841000" />
+    <option name="totallyTimeSpent" value="50065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1404" height="877" extended-state="6" />
@@ -544,7 +543,7 @@
         <state relative-caret-position="285">
           <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -554,7 +553,7 @@
         <state relative-caret-position="286">
           <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="32" selection-end-column="29" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -564,7 +563,7 @@
         <state relative-caret-position="300">
           <caret line="20" column="114" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="114" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -589,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/CreatorView/CreatorView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="140" column="36" lean-forward="false" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ReduxReducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -610,20 +599,8 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="7" />
+          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/PlebView/PlebView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1537093544000" expanded="false" signature="6683:9092" ph="..." />
-            <marker date="1537093544000" expanded="false" signature="10500:13405" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,10 +628,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/CreatorView/CreatorView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="184" column="55" lean-forward="false" selection-start-line="184" selection-start-column="53" selection-end-line="184" selection-end-column="55" />
+          <folding>
+            <marker date="1537101366000" expanded="true" signature="14386:14397" ph="&lt;Pie/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/PlebView/StalkerTron9000.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="48" column="70" lean-forward="false" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
+        <state relative-caret-position="2760">
+          <caret line="184" column="62" lean-forward="false" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/PlebView/PlebView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="143" column="55" lean-forward="false" selection-start-line="143" selection-start-column="55" selection-end-line="143" selection-end-column="55" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

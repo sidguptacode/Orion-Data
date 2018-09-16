@@ -110,7 +110,7 @@ class TestStream extends Component {
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
-          <Button onClick={this.handleClick}>Click to start!</Button>
+          <Button onClick={this.handleClick}>Begin!</Button>
         </Grid>
         <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{textAlign: "center"}}>
           <canvas display={"none"} style={{height: 480, width: 640, display: "none"}} display={false} ref={(c) => {
