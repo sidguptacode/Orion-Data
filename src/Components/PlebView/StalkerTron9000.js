@@ -70,14 +70,8 @@ class TestStream extends Component {
         (snapshot) => {
           snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.setState({downloadURL: downloadURL}, () => {
-              
-              var microsoft = (processImage(this.state.downloadURL));
-              if(microsoft != null && microsoft.data.length != 0){
-                  console.log("RAN!!");
-                  this.props.storeStats(microsoft.data[0].faceAttributes.emotion.happiness,
-                  microsoft.data[0].faceAttributes.emotion.neutral, microsoft.data[0].faceAttributes.emotion.sadness,
-                  microsoft.data[0].faceAttributes.emotion.surprise);
-              }
+
+              this.processImage(this.state.downloadURL);
 
               // Send API call!
               const app = new Clarifai.App({
@@ -104,7 +98,63 @@ class TestStream extends Component {
     });
   }
 
+  processImage = (url) => {
+      // Replace <Subscription Key> with your valid subscription key.
+      var subscriptionKey = "b102bdaac77944bfa86026cb6295c6b8";
 
+      // NOTE: You must use the same region in your REST call as you used to
+      // obtain your subscription keys. For example, if you obtained your
+      // subscription keys from westus, replace "westcentralus" in the URL
+      // below with "westus".
+      //
+      // Free trial subscription keys are generated in the westcentralus region.
+      // If you use a free trial subscription key, you shouldn't need to change
+      // this region.
+      var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+
+      // Request parameters.
+      var params = {
+          "returnFaceId": "true",
+          "returnFaceLandmarks": "false",
+          "returnFaceAttributes":
+              "age,gender,headPose,smile,facialHair,glasses,emotion," +
+              "hair,makeup,occlusion,accessories,blur,exposure,noise",
+          "data": '{"url": ' + '"' + url + '"}'
+      };
+
+      // Display the image.
+      var sourceImageUrl = url;
+
+      // Perform the REST API call.
+      axios.post(
+          "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+          '{"url": ' + '"' + url + '"}',
+          {
+          headers: {
+              'Content-Type': 'application/json',
+              'Ocp-Apim-Subscription-Key' : subscriptionKey
+          },
+          }
+      )
+      .then((response) => {
+          // Show formatted JSON on webpage.
+          console.log(response);
+          var microsoft = response;
+          if(microsoft != null && microsoft.data != null && microsoft.data.length > 0){
+              console.log("RAN!!");
+              this.props.storeStats(microsoft.data[0].faceAttributes.emotion.happiness,
+              microsoft.data[0].faceAttributes.emotion.neutral, microsoft.data[0].faceAttributes.emotion.sadness,
+              microsoft.data[0].faceAttributes.emotion.surprise);
+          }
+
+          return response;
+      })
+      .catch((error) => {
+          console.log(error)
+        // alert(error);
+        return "potato";
+      });
+  };
 
   render() {
     return (
@@ -131,56 +181,6 @@ class TestStream extends Component {
     );
   }
 }
-
-function processImage(url) {
-    // Replace <Subscription Key> with your valid subscription key.
-    var subscriptionKey = "b102bdaac77944bfa86026cb6295c6b8";
-
-    // NOTE: You must use the same region in your REST call as you used to
-    // obtain your subscription keys. For example, if you obtained your
-    // subscription keys from westus, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the westcentralus region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
-
-    // Request parameters.
-    var params = {
-        "returnFaceId": "true",
-        "returnFaceLandmarks": "false",
-        "returnFaceAttributes":
-            "age,gender,headPose,smile,facialHair,glasses,emotion," +
-            "hair,makeup,occlusion,accessories,blur,exposure,noise",
-        "data": '{"url": ' + '"' + url + '"}'
-    };
-
-    // Display the image.
-    var sourceImageUrl = url;
-
-    // Perform the REST API call.
-    axios.post(
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
-        '{"url": ' + '"' + url + '"}',
-        {
-        headers: {
-            'Content-Type': 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey
-        },
-        }
-    )
-    .then((response) => {
-        // Show formatted JSON on webpage.
-        console.log(response);
-        return response;
-    })
-    .catch((error) => {
-        console.log(error)
-      // alert(error);
-      return null;
-    });
-};
 
 function matchDispatchToProps(dispatch){
   return bindActionCreators({storeAge: storeAge, storeRace: storeRace, storeStats: storeStats},
