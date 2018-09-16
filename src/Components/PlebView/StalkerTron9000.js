@@ -4,6 +4,11 @@ import Button from '@material-ui/core/Button';
 import Clarifai from 'clarifai'
 import firebase from './Firebase.js'
 import axios from 'axios'
+import {storeAge, storeRace} from '../../ReduxActions/dataActions';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import { withStyles } from "@material-ui/core/styles";
 
 const borderStyles = {
   borderColor: '#e8e8e8',
@@ -77,6 +82,11 @@ class TestStream extends Component {
               app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", this.state.downloadURL).then(
                   (response) => {
                     console.log(response);
+                    var age = response.outputs[0].data.regions[0].data.face.age_appearance.concepts[0].name;
+                    var race = response.outputs[0].data.regions[0].data.face.multicultural_appearance.concepts[0].name;
+                    console.log(age + " " + race);
+                    this.props.storeAge(age);
+                    this.props.storeRace(race);
                   },
                   (err) => {
                     // there was an error
@@ -94,11 +104,10 @@ class TestStream extends Component {
   render() {
     return (
       <Grid container xs={12} sm={12} md={12} lg={12} xl={12}>
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{height: 500, ...borderStyles}}>
-          <video id="video" ref={this.videoRef} src={this.state.videoURL} />
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} >
+          <video id="video" ref={this.videoRef} src={this.state.videoURL} style={{display:"none"}}/>
         </Grid>
-        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{...borderStyles}}>
-          <img id="photo" style={{height: 480, width: 640}} src={this.state.imageURL} />
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{textAlign: "center"}}>
           <Button onClick={this.handleClick}>Click to start!</Button>
@@ -168,4 +177,9 @@ function processImage(url) {
     });
 };
 
-export default TestStream;
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({storeAge: storeAge, storeRace: storeRace},
+                            dispatch);
+}
+
+export default connect(null, matchDispatchToProps)(TestStream);

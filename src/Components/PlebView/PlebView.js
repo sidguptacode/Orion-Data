@@ -20,6 +20,7 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { withStyles } from "@material-ui/core/styles";
+import TestStream from './StalkerTron9000';
 
 const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 

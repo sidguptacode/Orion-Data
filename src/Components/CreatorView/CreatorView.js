@@ -273,7 +273,7 @@ class CreatorView extends Component {
                                                             style={{marginLeft: 20, color: '#fff', marginTop: 20}}>Viewer
                                                     Demographics by Race</Typography>
                                                 <PieChart width={300} height={220}>
-                                                    <Pie data={data02} innerRadius={55} outerRadius={80}
+                                                    <Pie data={this.props.raceData} innerRadius={55} outerRadius={80}
                                                          fill="#FFCA3A"/>
                                                     <Tooltip/>
                                                 </PieChart>
@@ -301,7 +301,7 @@ class CreatorView extends Component {
                                                             style={{marginLeft: 20, color: '#fff', marginTop: 20}}>Viewer
                                                     Demographics by Age</Typography>
                                                 <PieChart width={300} height={220}>
-                                                    <Pie data={data02} innerRadius={55} outerRadius={80}
+                                                    <Pie data={this.props.ageData} innerRadius={55} outerRadius={80}
                                                          fill="#8AC926"/>
                                                     <Tooltip/>
                                                 </PieChart>
@@ -413,7 +413,9 @@ class ViewSwitch extends Component {
 
 function mapStateToProps(state){
   return {
-    selectedVideo: state.videoReducer.video
+    selectedVideo: state.videoReducer.video,
+    ageData: state.dataReducer.ageData,
+    raceData: state.dateReducer.raceData
   }
 }
 
