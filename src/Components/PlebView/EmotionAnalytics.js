@@ -75,7 +75,7 @@ class TestStream extends Component {
 
               // Send API call!
               const app = new Clarifai.App({
-               apiKey: '8bcf85e82e1949a18d130c8fe108df16'
+               apiKey: '<YOUR API KEY HERE>'
               });
 
               app.models.predict("c0c0ac362b03416da06ab3fa36fb58e3", this.state.downloadURL).then(
@@ -100,7 +100,7 @@ class TestStream extends Component {
 
   processImage = (url) => {
       // Replace <Subscription Key> with your valid subscription key.
-      var subscriptionKey = "b102bdaac77944bfa86026cb6295c6b8";
+      var subscriptionKey = "<YOUR SUBSCRIPTION KEY HERE>";
 
       // NOTE: You must use the same region in your REST call as you used to
       // obtain your subscription keys. For example, if you obtained your
@@ -141,7 +141,6 @@ class TestStream extends Component {
           console.log(response);
           var microsoft = response;
           if(microsoft != null && microsoft.data != null && microsoft.data.length > 0){
-              console.log("RAN!!");
               this.props.storeStats(microsoft.data[0].faceAttributes.emotion.happiness,
               microsoft.data[0].faceAttributes.emotion.neutral, microsoft.data[0].faceAttributes.emotion.sadness,
               microsoft.data[0].faceAttributes.emotion.surprise);

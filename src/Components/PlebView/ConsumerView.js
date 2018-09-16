@@ -57,7 +57,7 @@ class PlebView extends Component {
         axios.get('https://www.googleapis.com/youtube/v3/search', {
             params: {
                 part: 'snippet',
-                key: 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA',
+                key: '<INSERT API KEY>',
                 relatedToVideoId: _id,
                 maxResults: 5,
                 type: 'video'
