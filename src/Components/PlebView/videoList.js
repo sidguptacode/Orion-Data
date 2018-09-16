@@ -19,7 +19,7 @@ const VideoList = (props) =>{
                 opacity: spring(1, {stiffness: 20, damping: 26})
             }}>
                 {(style) => (
-            <Typography variant="subheading" style={{opacity: style.opacity, transform: `translateX(${style.x}%)`, marginLeft: 40}}>Suggestions from Emotion</Typography>
+            <Typography variant="subheading" style={{opacity: style.opacity, transform: `translateX(${style.x}%)`,marginLeft: 40}}>Suggestions from Emotion</Typography>
                     )}
             </Motion>
         <ul className="list-group" style={{listStyleType: 'none'}}>

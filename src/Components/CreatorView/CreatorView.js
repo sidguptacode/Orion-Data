@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Typography } from "@material-ui/core"
-import XLVideo from "../PlebView/XLVideo"
 import Switch from '@material-ui/core/Switch';
 import orionIMG from '../../svgs/orionIMG.png';
 import DarkVideoDetail from './darkVid';

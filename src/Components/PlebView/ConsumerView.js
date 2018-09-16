@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Typography } from "@material-ui/core"
-import XLVideo from "./XLVideo"
 import Switch from '@material-ui/core/Switch';
 import Logo from '../../svgs/Logo.svg';
 import VideoDetail from './videoPlayer';
@@ -20,7 +19,7 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { withStyles } from "@material-ui/core/styles";
-import TestStream from './StalkerTron9000';
+import TestStream from './EmotionAnalytics';
 
 const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 
@@ -41,7 +40,7 @@ class PlebView extends Component {
             neutralityVal: 0,
             surpriseVal: 0
         };
-        this.videoSearch('')
+        this.videoSearch('hack the north')
     }
 
     videoSearch(term){
@@ -131,7 +130,6 @@ class PlebView extends Component {
                           <Title/>
                           <SearchBarMine onSearchTermChange={videoSearch}/>
                           <VideoDetail video={this.props.selectedVideo}/>
-                          {/*<XLVideo/>*/}
                           {/* XL video */}
                           {/* heatmap */}
                           {/* comments */}

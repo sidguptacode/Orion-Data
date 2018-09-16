@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Router, Redirect } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
-import PlebView from "./Components/PlebView/PlebView"
-import TestStream from "./Components/PlebView/StalkerTron9000"
+import PlebView from "./Components/PlebView/ConsumerView"
+import TestStream from "./Components/PlebView/EmotionAnalytics"
 import CreatorView from "./Components/CreatorView/CreatorView"
 
 /* Main application. */
