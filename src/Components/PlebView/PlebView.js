@@ -15,7 +15,11 @@ import Paper from '@material-ui/core/Paper';
 import axios from "axios/index";
 import { Motion, spring } from "react-motion";
 import {Route, Redirect } from 'react-router-dom'
-import { storeVideo } from '../../ReduxActions/videoActions';
+import { setVideo } from '../../ReduxActions/videoActions';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import { withStyles } from "@material-ui/core/styles";
 
 const API_key = 'AIzaSyBHYZzCCkMD7YYXJqEY5q6Vgd08gBs_KPA';
 
@@ -39,7 +43,7 @@ class PlebView extends Component {
         YTSearch({key: API_key, term: term,}, (videos) => {
             this.setState({
                 videos: videos,
-                selectedVideo: selectedVideo
+                selectedVideo: videos[0]
             });
             this.props.setVideo(videos[0]);
         });
@@ -335,7 +339,4 @@ function matchDispatchToProps(dispatch){
                             dispatch);
 }
 
-export default compose(
-    withStyles(styles),
-    connect(mapStateToProps, matchDispatchToProps)
-)(PlebView);
+export default connect(mapStateToProps, matchDispatchToProps)(PlebView);

@@ -9,6 +9,8 @@
     "@petamoriken/float16": "^1.0.6",
     "axios": "^0.18.0",
     "chart.js": "^2.7.2",
+    "clarifai": "^2.8.1",
+    "firebase": "^5.5.0",
     "material-ui": "^0.20.2",
     "material-ui-search-bar": "^1.0.0-beta.11",
     "material-ui-search-bar-enhanced": "^0.5.1",
@@ -22,15 +24,15 @@
     "react-heatmap-grid": "^0.4.0",
     "react-helmet": "^5.2.0",
     "react-motion": "^0.5.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-shapes": "^0.1.0",
     "recharts": "^1.2.0",
+    "redux": "^4.0.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
-    "youtube-api-search": "0.0.5",
-    "firebase": "^5.5.0",
-    "clarifai": "^2.8.1"
+    "youtube-api-search": "0.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
