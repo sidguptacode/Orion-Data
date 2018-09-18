@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyBFLBCljvwBdCXh18NNaLrwxv7nIFp9LCA",
+    apiKey: "YOUR API KEY",
     authDomain: "hackthenorthvideoreview.firebaseapp.com",
     databaseURL: "https://hackthenorthvideoreview.firebaseio.com",
     projectId: "hackthenorthvideoreview",

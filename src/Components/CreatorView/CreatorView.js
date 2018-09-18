@@ -3,11 +3,11 @@ import { Grid, Typography } from "@material-ui/core"
 import Switch from '@material-ui/core/Switch';
 import orionIMG from '../../svgs/orionIMG.png';
 import DarkVideoDetail from './darkVid';
-import SearchBarMine from '../PlebView/searchBar';
+import SearchBarMine from '../ConsumerView/searchBar';
 import YTSearch from 'youtube-api-search';
 import _ from 'lodash';
 import VideoList from './darkVid';
-import VideoListItem from '../PlebView/videoListItem';
+import VideoListItem from '../ConsumerView/videoListItem';
 import CommentListDark from './commendListDark'
 import { LineChart, Line, AreaChart, Area, Tooltip, PieChart, Pie, Legend } from 'recharts';
 import Paper from '@material-ui/core/Paper';
@@ -69,7 +69,7 @@ class CreatorView extends Component {
         axios.get('https://www.googleapis.com/youtube/v3/search', {
             params: {
                 part: 'snippet',
-                key: '<INSERT API KEY>',
+                key: 'INSERT API KEY',
                 relatedToVideoId: _id,
                 maxResults: 5,
                 type: 'video'
